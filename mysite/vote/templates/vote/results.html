@@ -1,0 +1,8 @@
+<h1> {{q.text}} </h1>
+<ul>
+    {% for v in q.vote_set.all %}
+    <li>
+        {{v.choice}} : {{v.count}}
+    </li>
+    {% endfor %}
+</ul>

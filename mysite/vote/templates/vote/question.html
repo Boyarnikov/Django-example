@@ -1,0 +1,14 @@
+<h1> {{q.text}} </h1>
+
+
+<form action="{% url 'vote:vote' q.id %}" method="post">
+    {% csrf_token %}
+    <ul>
+        {% for v in q.vote_set.all %}
+        <li>
+            <input type="radio" name="vote" id="vote{{forloop.counter}}" value={{v.id}}> {{v.choice}}
+        </li>
+        {% endfor %}
+    </ul>
+    <input type="submit" value="Vote">
+</form>
